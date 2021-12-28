@@ -9,7 +9,6 @@ import java.util.concurrent.ExecutorService
 class MainActivity : AppCompatActivity() {
     lateinit var button: Button
     lateinit var image: ImageView
-    private lateinit var executor: ExecutorService
     val pictureUrl: String = "https://www.5top100.ru/upload/iblock/e74/DJI_0300_thumb_ec557adb942b7b6f.jpg"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +22,5 @@ class MainActivity : AppCompatActivity() {
         viewModel.bitmap.observe(this) {
             image.setImageBitmap(it)
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        executor.shutdown()
     }
 }
